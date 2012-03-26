@@ -1,0 +1,5 @@
+#
+# Filename: /opt/funnelback/conf/electoral-commission/collection.state
+# Last Update: Fri Mar 23 18:05:01 2012 
+#
+incremental_gathers_remaining=2

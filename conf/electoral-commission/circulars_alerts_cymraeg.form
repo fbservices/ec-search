@@ -1,0 +1,319 @@
+<style type="text/css">
+.fb_result_section b {
+    font-weight: normal;
+}
+</style>
+
+<div class="column_content_subsearch">
+%globals_snippet_81400_circulars_alerts_welsh%
+
+<input type="hidden" name="iswelsh" value="circulars_alerts" />
+</form>
+
+<s:InitialFormOnly>
+<p class="fb_search_term">Please enter a search term.</p>
+</s:InitialFormOnly>
+
+
+<s:IfDefCGI query_prox>
+<style type="text/css">
+    #fb_fluster_breadcrumb {
+        background: #EEF2F5;
+        margin: 15px 0 0 0;
+        padding: 5px;
+    }
+
+    #fb_fluster_breadcrumb span {
+        float: left;
+        padding: 0 10px 0 0;
+    }
+
+    #fb_fluster_breadcrumb li {
+        display: inline;
+        float: left;
+    }
+
+    #fb_fluster_breadcrumb a {
+        background: url(http://<s:env>BUREAU_ADDRESS</s:env>/search/electoral-commission/fluster_cross.png) no-repeat right top;
+        padding: 0 10px 0 5px;
+    }
+
+    #fb_fluster_breadcrumb a:link,
+    #fb_fluster_breadcrumb a:visited {
+        color: #3C6A9F;
+        text-decoration: none;
+    }
+
+    #fb_fluster_breadcrumb a:hover,
+    #fb_fluster_breadcrumb a:focus,
+    #fb_fluster_breadcrumb a:active {
+        color: #CC0066;
+    }
+
+    #fb_fluster_breadcrumb br {
+        clear: both;
+    }
+</style>
+
+<div id="fb_fluster_breadcrumb">
+<span>Your refinements:</span>
+<ol>
+</s:IfDefCGI>
+<s:IfDefCGI cluster1>
+<li><a href="<s:EvalPerl>
+my $temp = $ENV{'QUERY_STRING'};
+$temp =~ m/cluster0=([^&]+)/;
+my $queryProx = $1;
+
+$temp =~ s/cluster(0|1|2)=[^&]+&?//g;
+$temp =~ s/query_prox=[^&]+/query=$queryProx/;
+$temp =~ s/form=&//g;
+$temp =~ s/&collection=electoral-commission//g;
+$temp = '?' . $temp;
+$temp;
+
+</s:EvalPerl>">
+<s:cgi>cluster1</s:cgi></a></li>
+</s:IfDefCGI>
+<s:IfDefCGI cluster2>
+<li><a href="<s:EvalPerl>
+my $temp = $ENV{'QUERY_STRING'};
+$temp =~ m/cluster1=([^&]+)/;
+my $queryProx = $1;
+
+$temp =~ s/cluster(1|2)=[^&]+&?//g;
+$temp =~ s/query_prox=[^&]+/query_prox=$queryProx/;
+$temp =~ s/form=&//g;
+$temp =~ s/&collection=electoral-commission//g;
+$temp = '?' . $temp;
+$temp;
+</s:EvalPerl>"><s:cgi>cluster2</s:cgi></a></li>
+</s:IfDefCGI>
+<s:IfDefCGI query_prox>
+<li><a href="<s:EvalPerl>
+my $temp = $ENV{'QUERY_STRING'};
+my $queryProx;
+
+if ( $temp =~ m/cluster2/ ) {
+    $temp =~ s/cluster2=([^&]+)&?//g;
+    $queryProx = $1;
+    $temp =~ s/query_prox=[^&]+/query_prox=$queryProx/;
+}
+elsif ( $temp =~ m/cluster1/ ) {
+    $temp =~ s/cluster1=([^&]+)&?//g;
+    $queryProx = $1;
+    $temp =~ s/query_prox=[^&]+/query_prox=$queryProx/;
+}
+else {
+    $temp =~ s/cluster0=([^&]+)&?//g;
+    $queryProx = $1;
+    $temp =~ s/query_prox=[^&]+/query=$queryProx/;
+}
+
+$temp =~ s/form=&//g;
+$temp =~ s/&collection=electoral-commission//g;
+$temp = '?' . $temp;
+$temp;
+</s:EvalPerl>"><s:cgi>query_prox</s:cgi></a></li>
+</ol>
+<br />
+</div>
+</s:IfDefCGI>
+
+        <s:AfterSearchOnly>
+
+
+
+
+
+
+<div class="column_tags">
+				<!-- SEARCH: FLUSTER -->
+                <s:Fluster>
+<div class="fb_widget similiar_results">
+                            <h4>Canlyniadau Tebyg </h4>
+
+
+                    <!-- The actual clusters -->
+                    <s:ClusterLayout>
+                            <!-- Clusters by type -->
+                            <s:Category name="topic">
+<h5>Pynciau yn ymwneud â <em>fluster{query}</em></h5>
+<ul>
+                                <s:Clusters>
+                                <li><a href="fluster{cluster_url}"><span>></span>fluster{cluster_name}</a></li>
+                                </s:Clusters>
+                            </ul>
+                            </s:Category>
+
+                            <!-- Clusters by topic -->
+                            <s:Category name="type">
+<h5>Gwahanol fathau o <em>fluster{query}</em></h5>
+<ul>
+                                <s:Clusters>
+                                <li><a href="fluster{cluster_url}"><span>></span>fluster{cluster_name}</a></li>
+                                </s:Clusters>
+                            </ul>
+                            </s:Category>
+                    </s:ClusterLayout>
+
+                    <!-- "No clusters found" box -->
+                    <s:NoClustersFound>
+                    <h5>Dim canlyniadau tebyg</h5>
+                    </s:NoClustersFound>
+</div>
+                </s:Fluster>
+
+    </div>
+
+
+        
+        
+	<!-- SEARCH: RESULTS -->
+        <!-- SEARCH -->
+        <div class="fb_search_results">
+            <p class="fb_recommend"><s:CheckSpelling alt="cy" output="Oeddech chi'n golygu"></s:CheckSpelling></p>
+
+	   <!-- Result counts -->
+	   <p class="fb_search_result_count">
+                <s:Compare <s:ResultData>total_matching</s:ResultData> == 0>
+                    There were <span>0</span> search results found.
+                </s:Compare>
+                <s:Compare <s:ResultData>total_matching</s:ResultData> != 0>
+		    Showing 
+                    <span><s:ResultData>currstart</s:ResultData></span> -
+                    <span><s:ResultData>currend</s:ResultData></span> of
+                    <span><s:commify><s:ResultData>total_matching</s:ResultData></s:commify></span> search results.
+                </s:Compare>
+            </p>
+
+<a href="/publications-and-research/circulars-and-alerts" class="fb_welsh_link">English</a>
+
+<!-- Tier bar customisation -->
+                <s:TierBarFeaturedPages>
+            <h4>Featured items</h4>
+                </s:TierBarFeaturedPages>
+                <s:TierBarFullyMatching>
+                <h1 class="tier_header">
+                    Search results that match all words
+                </h1>
+                </s:TierBarFullyMatching>
+                <s:TierBarPartiallyMatching>
+                <h1 class="tier_header">
+                    Search results that match
+                    tier{constraints_matching} of the
+                    tier{num_constraints} words
+                </h1>
+                </s:TierBarPartiallyMatching>
+
+
+<s:Compare <s:ResultData>total_matching</s:ResultData> == 0>
+<div style="color:#484848; margin: 20px 0 50px 0">
+    <p>No results match your search.</p>
+    <p style="margin-top: 10px;">Suggestions:</p>
+    <ul style="margin: 10px 0 0 20px; list-style-type: disc;">
+    <li>check the spelling of your search</li>
+    <li>use fewer search terms</li>
+    <li>try different terms</li>
+    </ul>
+</div>
+</s:Compare>
+
+<ul class="fb_search_result_list" id="fb_all_results">
+<s:Results>
+<li>
+<s:Compare <s:Res>filetype</s:Res> == pdf>
+<h5 class="fb_doctype_pdf">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == doc>
+<h5 class="fb_doctype_word">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == xls>
+<h5 class="fb_doctype_xls">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == ppt>
+<h5 class="fb_doctype_ppt">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == jpg>
+<h5 class="fb_doctype_image">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == mpg>
+<h5 class="fb_doctype_video">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == zip>
+<h5 class="fb_doctype_zip">
+</s:Compare>
+<s:Compare <s:Res>filetype</s:Res> == html>
+<h5>
+</s:Compare>
+<a href="http://<s:env>BUREAU_ADDRESS</s:env>/search/<s:Res>final_result_link</s:Res>" title="<s:Res>live_url</s:Res>">
+<s:boldicize bold="<s:ResultData>query</s:ResultData>"><s:Res>title</s:Res></s:boldicize>
+</a>
+</h5>
+<p><s:Truncate 200>
+<s:EvalPerl>
+my $query = '<s:Res>md_c</s:Res>';
+$query =~ s/\|.*$//;
+$query =~ s/<b>Re<\/b>\. <b>istered<\/b>/<b>Re\?istered<\/b>/ig;
+$query =~ s/<b>istered<\/b>/<b>Re\?istered<\/b>/ig;
+$query =~ s/<b>Re<\/b>\?/<b>Re\?istered<\/b>/ig;
+$query;
+</s:EvalPerl>
+</s:Truncate></p>
+
+<s:Compare <s:Res>filetype</s:Res> == html>
+<s:ResIf name="md_H"><div class="fb_result_section"><span>Rhan:</span> <s:Res>md_H</s:Res></div></s:ResIf>
+</s:Compare>
+
+<s:Compare <s:Res>filetype</s:Res> != html>
+<div class="fb_result_section">
+<s:ResIf name="md_I"><span>Math:</span> <s:Res>md_I</s:Res></s:ResIf>
+<span>Maint y ffeil:</span> 
+<s:ResIf name='md_E'><s:Res>md_E</s:Res></s:ResIf>
+<s:ResIfNot name='md_E'><s:Res>filesize</s:Res></s:ResIfNot>
+</div>
+</s:Compare>
+
+<s:ResIf name='md_L'><div class="fb_result_date_published"><s:Res>md_L</s:Res></div></s:ResIf>
+</li>
+</s:Results>
+</ul>
+
+
+        </div>
+<s:Compare <s:ResultData>total_matching</s:ResultData> != 0>
+        <div class="fb_search_pagination">
+<s:Plugin name="ecPrevNext" form="circulars_alerts_cymraeg"></s:Plugin>
+        </div>
+        <div class="fb_results_per_page">
+        <span>Results per page:</span>
+        <ul>
+<s:Compare <s:cgi>num_ranks</s:cgi> != 20>
+            <li>10</li>
+            <li class="page_divide">|</li>
+	    <li><a href="%globals_asset_url%?collection=<s:cgi>collection</s:cgi>&form=<s:cgi>form</s:cgi>&query=<s:cgi>query</s:cgi>&iswelsh=circulars_alerts&num_ranks=20">20</a>
+</s:Compare>
+<s:Compare <s:cgi>num_ranks</s:cgi> == 20>
+	    <li><a href="%globals_asset_url%?collection=<s:cgi>collection</s:cgi>&form=<s:cgi>form</s:cgi>&query=<s:cgi>query</s:cgi>&iswelsh=circulars_alerts&num_ranks=10">10</a></li>
+            <li class="page_divide">|</li>
+            <li>20</li>
+</s:Compare>
+        </ul>
+        </div>
+</s:Compare>
+</s:AfterSearchOnly>
+    </div> <!-- end column_content_subsearch -->
+<s:AfterSearchOnly>
+
+
+<script type="text/javascript" src="http://<s:env>BUREAU_ADDRESS</s:env>/search/electoral-commission/selectField.js"></script>
+<script type="text/javascript">
+setSelectMultiple('meta_C');
+setSelectMultiple('meta_d1day');
+setSelectMultiple('meta_d1month');
+setSelectMultiple('meta_d1year');
+setSelectMultiple('meta_d2day');
+setSelectMultiple('meta_d2month');
+setSelectMultiple('meta_d2year');
+setCheckbox('meta_F');
+</script>
