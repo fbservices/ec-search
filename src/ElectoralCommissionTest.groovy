@@ -1,0 +1,3 @@
+class ElectoralCommissionTest extends GroovyTestCase {
+
+}
