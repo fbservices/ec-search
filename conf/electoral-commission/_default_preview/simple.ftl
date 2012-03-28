@@ -52,21 +52,6 @@
 </ul>
 
 <@s.AfterSearchOnly>
-	<@s.TierBarFeaturedPages>
-    	<h4>Featured items</h4>
-    </@s.TierBarFeaturedPages>
-    <@s.TierBarFullyMatching>
-    	<h1 class="tier_header">
-        	Search results that match all words
-        </h1>
-    </@s.TierBarFullyMatching>
-    <@s.TierBarPartiallyMatching>
-    	<h1 class="tier_header">
-        	Search results that match
-            ${s.tierBar.matched} of the
-            ${s.tierBar.outOf} words
-        </h1>
-    </@s.TierBarPartiallyMatching>
 
 	<#if response.resultPacket.resultsSummary.totalMatching == 0>
 		<div style="color:#484848; margin: 20px 0 50px 0"> <!-- RM: no inline styles please -->
@@ -81,32 +66,34 @@
 	</#if>
 	<ul class="fb_search_result_list" id="fb_all_results">
 		<@s.Results>
+		<#if s.result.class.simpleName == "TierBar">
+		<#else>
 		<li>
-			<#if s.result.fileType == pdf>
+			<#if s.result.fileType == 'pdf'>
 				<h5 class="fb_doctype_pdf">			
 			</#if>
-			<#if s.result.fileType == doc>
+			<#if s.result.fileType == 'doc'>
 				<h5 class="fb_doctype_word">
 			</#if>
-			<#if s.result.fileType == xls>
+			<#if s.result.fileType == 'xls'>
 				<h5 class="fb_doctype_xls">
 			</#if>
-			<#if s.result.fileType == ppt>
+			<#if s.result.fileType == 'ppt'>
 				<h5 class="fb_doctype_ppt">
 			</#if>
-			<#if s.result.fileType == jpg>
+			<#if s.result.fileType == 'jpg'>
 				<h5 class="fb_doctype_image">
 			</#if>
-			<#if s.result.fileType == mp3>
+			<#if s.result.fileType == 'mp3'>
 				<h5 class="fb_doctype_video">
 			</#if>
-			<#if s.result.fileType == mpg>
+			<#if s.result.fileType == 'mpg'>
 				<h5 class="fb_doctype_video">
 			</#if>
-			<#if s.result.fileType == zip>
+			<#if s.result.fileType == 'zip'>
 				<h5 class="fb_doctype_zip">
 			</#if>
-			<#if s.result.fileType == html>
+			<#if s.result.fileType == 'html'>
 				<h5>
 			</#if>
 			<a href="/search/${s.result.clickTrackingUrl}"
@@ -123,7 +110,7 @@
 					<div class="fb_result_section"><span>Section:</span> ${s.result.metaData.A}</div>
 				</#if>
 			</#if>
-			<#if s.result.fileType != html || s.result.fileType != cfm>
+			<#if s.result.fileType != 'html' || s.result.fileType != 'cfm'>
 				<div class="fb_result_section">
 					<#if s.result.metaData.F>
 						<span>Type:</span> ${s.result.metaData.F}
@@ -146,6 +133,7 @@
 				</div>
 			</div>
 		</li>
+		</#if>
 		</@s.Results>
 	</ul>
 </div>
