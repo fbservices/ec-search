@@ -102,20 +102,20 @@
 			</a>
 			</h5>
 			<!-- RM: Move eval logic to hook script if still needed -->
-			<#if s.result.metaData.c>
+			<#if s.result.metaData.c?exists>
 				<p>${s.result.metaData.c}</p>
 			</#if>
-			<#if s.result.fileType == html>
-				<#if s.result.metaData.A>
+			<#if s.result.fileType == 'html'>
+				<#if s.result.metaData.A?exists>
 					<div class="fb_result_section"><span>Section:</span> ${s.result.metaData.A}</div>
 				</#if>
 			</#if>
 			<#if s.result.fileType != 'html' || s.result.fileType != 'cfm'>
 				<div class="fb_result_section">
-					<#if s.result.metaData.F>
+					<#if s.result.metaData.F?exists>
 						<span>Type:</span> ${s.result.metaData.F}
 						<span>File size:</span> 
-						<#if s.result.metaData.E>
+						<#if s.result.metaData.E?exists>
 							${s.result.metaData.E}
 						<#else>
 							${s.result.fileSize}
@@ -124,8 +124,8 @@
 				</div>
 			</#if>
 			
-			<#if s.result.date != 'No Date'>
-				<div class="fb_result_date_published">${s.result.date}</div>
+			<#if s.result.date?exists>
+				<div class="fb_result_date_published">${s.result.date?date}</div>
 			</#if>
 			<div class="fb_result_rate">
 				<div class="rate_contents">
@@ -145,12 +145,12 @@
 	<div class="fb_results_per_page">
         <span>Results per page:</span>
         <ul>
-        <#if num_ranks != 20>
+        <#if question.additionalParameters.num_ranks?exists && question.additionalParameters.num_ranks != 20>
             <li>10</li>
             <li class="page_divide">|</li>
-      		<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.inputParameterMap.form}&query=${question.query}&num_ranks=20">20</a></li>
+      		<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.form}&query=${question.query}&num_ranks=20">20</a></li>
 		<#else>
-			<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.inputParameterMap.form}&query=${question.query}&num_ranks=10">10</a></li>
+			<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.form}&query=${question.query}&num_ranks=10">10</a></li>
             <li class="page_divide">|</li>
             <li>20</li>
         </#if>
@@ -192,7 +192,7 @@
 					<h5>Topics around <em>${s.contextualNavigation.searchTerm}</em></h5>
 					<ul>
 	                <@s.Clusters>
-						<li><a href="${s.cluster.href}"><span>></span>${s.cluster.name}</a></li>
+						<li><a href="${s.cluster.href}"><span>></span>${s.cluster.label}</a></li>
 	                </@s.Clusters>
 	                </ul>
 	            </@s.Category>
@@ -200,7 +200,7 @@
 					<h5>Different types of <em>${s.contextualNavigation.searchTerm}</em></h5>
 					<ul>
 	                <@s.Clusters>
-	                	<li><a href="${s.cluster.href}"><span>></span>${s.cluster.name}</a></li>
+	                	<li><a href="${s.cluster.href}"><span>></span>${s.cluster.label}</a></li>
 	                </@s.Clusters>
 	                </ul>
 	            </@s.Category>
