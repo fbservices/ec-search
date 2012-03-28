@@ -2,6 +2,8 @@
 <#import "/web/templates/modernui/funnelback_classic.ftl" as s/>
 <#import "/web/templates/modernui/funnelback.ftl" as fb/>
 <#import "/conf/electoral-commission/_default_preview/ecPrevNext.ftl" as ecPrevNext/>
+<#import "/conf/electoral-commission/_default_preview/ecRateResults.ftl" as ecRateResults/>
+
 <style type="text/css">
 .fb_result_section b {
     font-weight: normal;
@@ -129,6 +131,8 @@
 			</#if>
 			<div class="fb_result_rate">
 				<div class="rate_contents">
+				<@ecRateResults.RateResults result=result rating="good" email="webmaster@electoralcommission.org.uk" class="rate_up"><span>rate up</span></@ecRateResults.RateResults>
+				<@ecRateResults.RateResults result=result rating="bad" email="webmaster@electoralcommission.org.uk" class="rate_down"><span>rate down</span></@ecRateResults.RateResults>
 				<!-- RM: ec rate results plugin functionality here -->
 				</div>
 			</div>
