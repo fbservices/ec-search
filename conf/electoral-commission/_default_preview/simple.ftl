@@ -125,7 +125,7 @@
 			</#if>
 			
 			<#if s.result.date?exists>
-				<div class="fb_result_date_published">${s.result.date?date}</div>
+				<div class="fb_result_date_published">${s.result.date?string("dd MMM yyyy")}</div>
 			</#if>
 			<div class="fb_result_rate">
 				<div class="rate_contents">
