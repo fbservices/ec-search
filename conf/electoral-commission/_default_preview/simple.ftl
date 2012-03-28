@@ -145,7 +145,7 @@
 	<div class="fb_results_per_page">
         <span>Results per page:</span>
         <ul>
-        <#if question.additionalParameters.num_ranks?exists && question.additionalParameters.num_ranks != 20>
+        <#if question.additionalParameters.num_ranks?exists && question.additionalParameters.num_ranks != '20'>
             <li>10</li>
             <li class="page_divide">|</li>
       		<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.form}&query=${question.query}&num_ranks=20">20</a></li>
