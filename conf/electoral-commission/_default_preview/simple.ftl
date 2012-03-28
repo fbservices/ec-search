@@ -1,7 +1,7 @@
 <#ftl encoding="utf-8" />
 <#import "/web/templates/modernui/funnelback_classic.ftl" as s/>
 <#import "/web/templates/modernui/funnelback.ftl" as fb/>
-
+<#import "/conf/electoral-commission/_default_preview/ecPrevNext.ftl" as ecPrevNext/>
 <style type="text/css">
 .fb_result_section b {
     font-weight: normal;
@@ -140,6 +140,7 @@
 
 <#if response.resultPacket.resultsSummary.totalMatching != 0>
 	<div class="fb_search_pagination">
+		<@ecPrevNext.PrevNext></@ecPrevNext.PrevNext>
 		<!-- ec pagination plugin goes here -->
 	</div>
 	<div class="fb_results_per_page">
