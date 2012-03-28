@@ -38,16 +38,16 @@
 <br />
 <ul class="fb_search_group_navigation">
 	<li class="first group_current">
-		<a href="%globals_asset_url%?collection=${question.query.collection.id}&form=simple">All results</a>
+		<a href="%globals_asset_url%?collection=${question.collection.id}&form=simple">All results</a>
 	</li>
     <li>
-    	<a href="%globals_asset_url%?collection=${question.query.collection.id}&query=${question.query}&form=main-news-releases">News releases</a>
+    	<a href="%globals_asset_url%?collection=${question.collection.id}&query=${question.query}&form=main-news-releases">News releases</a>
     </li>
     <li>
-    	<a href="%globals_asset_url%?collection=${question.query.collection.id}&query=${question.query}&form=main-publications">Publications</a>
+    	<a href="%globals_asset_url%?collection=${question.collection.id}&query=${question.query}&form=main-publications">Publications</a>
     </li>
     <li class="last">
-    	<a href="%globals_asset_url%?collection=${question.query.collection.id}&query=${question.query}&form=main-cymraeg">Cymraeg</a>
+    	<a href="%globals_asset_url%?collection=${question.collection.id}&query=${question.query}&form=main-cymraeg">Cymraeg</a>
     </li>
 </ul>
 
@@ -111,7 +111,7 @@
 			</#if>
 			<a href="/search/${s.result.clickTrackingUrl}"
 			   title="${s.result.liveUrl}">
-				<@s.boldicize bold="${s.question.query}">${s.result.title}</@s.boldicize>
+				<@s.boldicize bold="${question.query}">${s.result.title}</@s.boldicize>
 			</a>
 			</h5>
 			<!-- RM: Move eval logic to hook script if still needed -->
@@ -160,9 +160,9 @@
         <#if num_ranks != 20>
             <li>10</li>
             <li class="page_divide">|</li>
-      		<li><a href="%globals_asset_url%?collection=${question.query.collection.id}&form=${question.inputParameterMap.form}&query=${question.query}&num_ranks=20">20</a></li>
+      		<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.inputParameterMap.form}&query=${question.query}&num_ranks=20">20</a></li>
 		<#else>
-			<li><a href="%globals_asset_url%?collection=${question.query.collection.id}&form=${question.inputParameterMap.form}&query=${question.query}&num_ranks=10">10</a></li>
+			<li><a href="%globals_asset_url%?collection=${question.collection.id}&form=${question.inputParameterMap.form}&query=${question.query}&num_ranks=10">10</a></li>
             <li class="page_divide">|</li>
             <li>20</li>
         </#if>
