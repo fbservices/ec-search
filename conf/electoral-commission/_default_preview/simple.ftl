@@ -38,11 +38,11 @@
 			<div id="fb_fluster_breadcrumb">
 			<span>Your refinements:</span>
 			<ol>
-				<li><a href="">question.inputParameterMap.cluster0?html</a></li>
+				<li><a href="">${question.inputParameterMap.cluster0?html}</a></li>
 				<#if question.inputParameterMap.cluster1?exists>
-					<li><a href="">question.inputParameterMap.cluster1?html</a></li>
+					<li><a href="">${question.inputParameterMap.cluster1?html}</a></li>
 					<#if question.inputParameterMap.cluster2?exists>
-						<li><a href="">question.inputParameterMap.cluster2?html</a></li>
+						<li><a href="">${question.inputParameterMap.cluster2?html}</a></li>
 					</#if>
 				</#if>
 			</ol>
